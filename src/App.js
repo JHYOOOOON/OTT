@@ -36,7 +36,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.containerWidth);
     return (
       <div ref={this.mainApp} className={`App ${this.state.active}`}>
         <Header />

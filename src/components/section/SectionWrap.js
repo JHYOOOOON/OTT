@@ -7,9 +7,11 @@ import currentimg from "../../img/우리집.png";
 class SectionWrap extends Component {
   componentDidMount() {
     this.props.apiStore.getData();
+    console.log("cdm:::::");
   }
   render() {
-    console.log(this.props.apiStore.data);
+    console.log("test:::", this.props.apiStore.test);
+    console.log("data:::", this.props.apiStore.data);
     return (
       <section className="section-wrap">
         <div className="section-main_roll">
