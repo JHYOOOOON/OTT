@@ -1,24 +1,18 @@
 import React, { Component } from "react";
-import { inject, observer } from "mobx-react";
 import currentimg from "../../img/우리집.png";
 
-@inject("apiStore")
-@observer
 class SectionWrap extends Component {
-  componentDidMount() {
-    this.props.apiStore.getData();
-    console.log("cdm:::::");
-  }
+
   render() {
-    console.log("test:::", this.props.apiStore.test);
-    console.log("data:::", this.props.apiStore.data);
+    console.log("viewData::::",this.props.viewData.data.results);
+
     return (
       <section className="section-wrap">
         <div className="section-main_roll">
           <ul>
             <li>
               <p>
-                <span className="main-roll-title">터미네이터 다크페이트</span>
+                <span 0className="main-roll-title">터미네이터 다크페이트</span>
                 <br />
                 심판의 날 그 후, 뒤바뀐 미래 새로운 인류의 희망 ‘대니’(나탈리아
                 레이즈)를 지키기 위해 슈퍼 솔져 ‘그레이스’(맥켄지 데이비스)가
