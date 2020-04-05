@@ -2,6 +2,7 @@
 @import "header.scss";
 @import "section.scss";
 @import "footer.scss";
+@import "loading.scss";
 
 body {
   margin: 0;
@@ -34,14 +35,6 @@ body {
 .cls-4 {
   font-family: AppleSDGothicNeo-Regular, Apple SD Gothic Neo;
   font-weight: 400;
-}
-
-//loading
-.loading-box{
-  color:#fff;
-  text-align:center;
-  font-size: 32px;
-  padding-top: 100px;
 }
 
 // 반응형 test

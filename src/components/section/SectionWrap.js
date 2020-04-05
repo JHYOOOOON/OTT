@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import currentimg from "../../img/우리집.png";
+import SectionContainer from "../container/SectionContainer";
 
 class SectionWrap extends Component {
-
   render() {
-    console.log("viewData::::",this.props.viewData.data.results);
-
     return (
       <section className="section-wrap">
         <div className="section-main_roll">
           <ul>
             <li>
               <p>
-                <span 0className="main-roll-title">터미네이터 다크페이트</span>
+                <span className="main-roll-title">터미네이터 다크페이트</span>
                 <br />
                 심판의 날 그 후, 뒤바뀐 미래 새로운 인류의 희망 ‘대니’(나탈리아
                 레이즈)를 지키기 위해 슈퍼 솔져 ‘그레이스’(맥켄지 데이비스)가
@@ -48,31 +46,7 @@ class SectionWrap extends Component {
             </li>
           </ul>
         </div>
-        <div className="section-current-movies">
-          <p>현재상영작</p>
-          <div className="section-current-roll">
-            <div>
-              <img src={currentimg} alt="" />
-              <div className="current-text">text</div>
-            </div>
-            <div>
-              <img src={currentimg} alt="" />
-              <div className="current-text">text</div>
-            </div>
-            <div>
-              <img src={currentimg} alt="" />
-              <div className="current-text">text</div>
-            </div>
-            <div>
-              <img src={currentimg} alt="" />
-              <div className="current-text">text</div>
-            </div>
-            <div>
-              <img src={currentimg} alt="" />
-              <div className="current-text">text</div>
-            </div>
-          </div>
-        </div>
+        <SectionContainer />
         <div className="section-schedule-movies">
           <p>개봉예정작</p>
           <div className="section-schedule-roll">
