@@ -45,7 +45,7 @@ class App extends Component {
     return (
       <div ref={this.mainApp} className={`App ${this.state.active}`}>
         <Header />
-        <SectionWrap />
+        <SectionContainer />
         <Footer />
       </div>
     );

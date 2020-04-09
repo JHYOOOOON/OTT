@@ -7,11 +7,13 @@ class ApiStore {
   @observable popular = {};
   @observable genre = {};
 
+  // language: "ko-KR"
+
   @observable movieApi = axios.create({
     baseURL: "https://api.themoviedb.org/3/",
     params: {
       api_key: `${process.env.REACT_APP_KEY}`,
-      language: "ko-KR",
+      language: "en-US",
     },
   });
 

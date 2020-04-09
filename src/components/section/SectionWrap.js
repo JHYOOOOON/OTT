@@ -1,77 +1,81 @@
-import React, { Component } from "react";
-import currentimg from "../../img/우리집.png";
-import SectionContainer from "../container/SectionContainer";
+/* eslint-disable react/jsx-pascal-case */
+import React from "react";
+import Loading from "../Loading";
+import NP_Poster from "../NP_Poster";
+import UP_Poster from "../UP_Poster";
+import POP_Poster from "../POP_Poster";
 
-class SectionWrap extends Component {
-  render() {
-    return (
-      <section className="section-wrap">
-        {/*
+const SectionWrap = ({
+  loading,
+  error,
+  upcoming,
+  nowPlaying,
+  popular,
+  genre,
+}) =>
+  loading ? (
+    <Loading />
+  ) : (
+    <section className="section-wrap">
+      {popular.length > 0 && genre.length > 0 && (
         <div className="section-main_roll">
           <ul>
-            <li>
-              <p>
-                <span className="main-roll-title">터미네이터 다크페이트</span>
-                <br />
-                심판의 날 그 후, 뒤바뀐 미래 새로운 인류의 희망 ‘대니’(나탈리아
-                레이즈)를 지키기 위해 슈퍼 솔져 ‘그레이스’(맥켄지 데이비스)가
-                미래에서 찾아오고, ‘대니’를 제거하기 위한 터미네이터
-                ‘Rev-9’(가브리엘 루나)의 추격이 시작된다. <br />
-                <span className="main-roll-playbtn">Play Now</span>
-                <span className="main-roll-addbtn">Add to favourites</span>
-              </p>
-            </li>
-            <li>
-              <p>
-                <span className="main-roll-title">터미네이터 다크페이트</span>
-                <br />
-                심판의 날 그 후, 뒤바뀐 미래 새로운 인류의 희망 ‘대니’(나탈리아
-                레이즈)를 지키기 위해 슈퍼 솔져 ‘그레이스’(맥켄지 데이비스)가
-                미래에서 찾아오고, ‘대니’를 제거하기 위한 터미네이터
-                ‘Rev-9’(가브리엘 루나)의 추격이 시작된다. <br />
-                <span className="main-roll-playbtn">Play Now</span>
-                <span className="main-roll-addbtn">Add to favourites</span>
-              </p>
-            </li>
-            <li>
-              <p>
-                <span className="main-roll-title">터미네이터 다크페이트</span>
-                <br />
-                심판의 날 그 후, 뒤바뀐 미래 새로운 인류의 희망 ‘대니’(나탈리아
-                레이즈)를 지키기 위해 슈퍼 솔져 ‘그레이스’(맥켄지 데이비스)가
-                미래에서 찾아오고, ‘대니’를 제거하기 위한 터미네이터
-                ‘Rev-9’(가브리엘 루나)의 추격이 시작된다. <br />
-                <span className="main-roll-playbtn">Play Now</span>
-                <span className="main-roll-addbtn">Add to favourites</span>
-              </p>
-            </li>
+            {popular.map((movie) => {
+              let genres = [];
+              for (let num of movie.genre_ids) {
+                let index = genre.findIndex((a) => a.id === num);
+                genres.push(genre[index].name);
+              }
+              return (
+                <POP_Poster
+                  imageUrl={movie.poster_path}
+                  name={movie.title}
+                  overview={movie.overview}
+                  genres={genres}
+                  id={movie.id}
+                  key={movie.id}
+                />
+              );
+            })}
           </ul>
         </div>
-                */}
-        <SectionContainer />
-        {/*<div className="section-schedule-movies">
+      )}
+      {nowPlaying && nowPlaying.length > 0 && (
+        <div className="section-current-movies">
+          <p>현재상영작</p>
+          <div className="section-current-roll">
+            {nowPlaying.map((movie) => (
+              <NP_Poster
+                imageUrl={movie.poster_path}
+                rating={movie.vote_average}
+                name={movie.title}
+                year={movie.release_date.substring(0, 4)}
+                overview={movie.overview}
+                id={movie.id}
+                key={movie.id}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+      {upcoming && upcoming.length > 0 && (
+        <div className="section-schedule-movies">
           <p>개봉예정작</p>
           <div className="section-schedule-roll">
-            <div>
-              <div className="schedule-text">text</div>
-            </div>
-            <div>
-              <div className="schedule-text">text</div>
-            </div>
-            <div>
-              <div className="schedule-text">text</div>
-            </div>
-            <div>
-              <div className="schedule-text">text</div>
-            </div>
-            <div>
-              <div className="schedule-text">text</div>
-            </div>
+            {upcoming.map((movie) => (
+              <UP_Poster
+                imageUrl={movie.poster_path}
+                name={movie.title}
+                date={movie.release_date}
+                id={movie.id}
+                key={movie.id}
+              />
+            ))}
           </div>
-              </div>*/}
-      </section>
-    );
-  }
-}
+        </div>
+      )}
+      {error && <div>error</div>}
+    </section>
+  );
 
 export default SectionWrap;

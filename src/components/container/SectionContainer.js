@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
-import SectionWrapTmp from "../section/SectionWrapTmp";
+import SectionWrap from "../section/SectionWrap";
 
 @inject("apiStore")
 @observer
@@ -26,7 +26,7 @@ class SectionContainer extends Component {
   render() {
     const { upcoming, nowPlaying, popular, genre } = this.props.apiStore;
     return (
-      <SectionWrapTmp
+      <SectionWrap
         loading={this.state.loading}
         error={this.state.error}
         upcoming={upcoming}
