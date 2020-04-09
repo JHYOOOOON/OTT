@@ -14,6 +14,8 @@ class SectionContainer extends Component {
     try {
       this.props.apiStore.getUpcoming();
       this.props.apiStore.getNowPlaying();
+      this.props.apiStore.getPopular();
+      this.props.apiStore.getGenre();
     } catch {
       this.setState({ error: "error" });
     } finally {
@@ -22,14 +24,15 @@ class SectionContainer extends Component {
   }
 
   render() {
-    const { upcoming, nowPlaying } = this.props.apiStore;
-    console.log(this.props.apiStore.nowPlaying);
+    const { upcoming, nowPlaying, popular, genre } = this.props.apiStore;
     return (
       <SectionWrapTmp
         loading={this.state.loading}
         error={this.state.error}
         upcoming={upcoming}
         nowPlaying={nowPlaying}
+        popular={popular}
+        genre={genre}
       />
     );
   }

@@ -44,6 +44,7 @@ class App extends Component {
   render() {
     return (
       <div ref={this.mainApp} className={`App ${this.state.active}`}>
+        <Header />
         <SectionWrap />
         <Footer />
       </div>

@@ -4,12 +4,14 @@ import axios from "axios";
 class ApiStore {
   @observable upcoming = {};
   @observable nowPlaying = {};
+  @observable popular = {};
+  @observable genre = {};
 
   @observable movieApi = axios.create({
     baseURL: "https://api.themoviedb.org/3/",
     params: {
       api_key: `${process.env.REACT_APP_KEY}`,
-      language: "Ko",
+      language: "ko-KR",
     },
   });
 
@@ -33,6 +35,28 @@ class ApiStore {
         console.log(":::getNowPlaying", this.nowPlaying);
       })
       .catch((error) => console.log(":::nowPlaying_error: " + error));
+  }
+
+  @action
+  getPopular() {
+    this.movieApi
+      .get(`movie/popular`)
+      .then((res) => {
+        this.popular = res.data.results;
+        console.log(":::getPopular", this.popular);
+      })
+      .catch((error) => console.log(":::getPopular_error" + error));
+  }
+
+  @action
+  getGenre() {
+    this.movieApi
+      .get(`genre/movie/list`)
+      .then((res) => {
+        this.genre = res.data.genres;
+        console.log(":::getGenre", this.genre);
+      })
+      .catch((error) => console.log(":::getGenre_error" + error));
   }
 }
 

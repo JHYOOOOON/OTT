@@ -6,6 +6,7 @@ class SectionWrap extends Component {
   render() {
     return (
       <section className="section-wrap">
+        {/*
         <div className="section-main_roll">
           <ul>
             <li>
@@ -46,8 +47,9 @@ class SectionWrap extends Component {
             </li>
           </ul>
         </div>
+                */}
         <SectionContainer />
-        <div className="section-schedule-movies">
+        {/*<div className="section-schedule-movies">
           <p>개봉예정작</p>
           <div className="section-schedule-roll">
             <div>
@@ -66,7 +68,7 @@ class SectionWrap extends Component {
               <div className="schedule-text">text</div>
             </div>
           </div>
-        </div>
+              </div>*/}
       </section>
     );
   }
